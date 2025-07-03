@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "geeksdevadf"
+		},
+		"Geeks_KeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://geekskeyvlt.vault.azure.net/"
+		},
+		"geeks_adls_lk_properties_typeProperties_url": {
+			"value": "https://geekadlsstorage.dfs.core.windows.net/"
+		},
+		"geeks_adls_lk_properties_typeProperties_tenant": {
+			"value": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+		},
+		"geeks_adls_lk_properties_typeProperties_servicePrincipalId": {
+			"value": "381ea938-616c-4311-81f4-0a1009a54143"
+		},
+		"geeks_adls_sink_lk_properties_typeProperties_url": {
+			"value": "https://geekadlsstoragesink.dfs.core.windows.net/"
+		},
+		"geeks_adls_sink_lk_properties_typeProperties_tenant": {
+			"value": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+		},
+		"geeks_adls_sink_lk_properties_typeProperties_servicePrincipalId": {
+			"value": "381ea938-616c-4311-81f4-0a1009a54143"
+		},
+		"geeks_blob_lk_properties_typeProperties_serviceEndpoint": {
+			"value": "https://geekblobstorage.blob.core.windows.net/"
+		},
+		"geeks_blob_lk_properties_typeProperties_tenant": {
+			"value": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+		},
+		"geeks_blob_lk_properties_typeProperties_servicePrincipalId": {
+			"value": "381ea938-616c-4311-81f4-0a1009a54143"
+		},
+		"geeks_rest_api_lk_properties_typeProperties_url": {
+			"value": "https://airlabs.co/api/v9/airlines"
+		},
+		"geeks_sql_lk_properties_typeProperties_server": {
+			"value": "geeksserver.database.windows.net"
+		},
+		"geeks_sql_lk_properties_typeProperties_database": {
+			"value": "geeeksdb"
+		},
+		"geeks_sql_lk_properties_typeProperties_userName": {
+			"value": "geeksadmin"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

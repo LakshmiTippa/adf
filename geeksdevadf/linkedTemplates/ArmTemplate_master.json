@@ -1,0 +1,140 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "geeksdevadf"
+		},
+		"Geeks_KeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://geekskeyvlt.vault.azure.net/"
+		},
+		"geeks_adls_lk_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://geekadlsstorage.dfs.core.windows.net/"
+		},
+		"geeks_adls_lk_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+		},
+		"geeks_adls_lk_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "381ea938-616c-4311-81f4-0a1009a54143"
+		},
+		"geeks_adls_sink_lk_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://geekadlsstoragesink.dfs.core.windows.net/"
+		},
+		"geeks_adls_sink_lk_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+		},
+		"geeks_adls_sink_lk_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "381ea938-616c-4311-81f4-0a1009a54143"
+		},
+		"geeks_blob_lk_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://geekblobstorage.blob.core.windows.net/"
+		},
+		"geeks_blob_lk_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+		},
+		"geeks_blob_lk_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "381ea938-616c-4311-81f4-0a1009a54143"
+		},
+		"geeks_rest_api_lk_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://airlabs.co/api/v9/airlines"
+		},
+		"geeks_sql_lk_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "geeksserver.database.windows.net"
+		},
+		"geeks_sql_lk_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "geeeksdb"
+		},
+		"geeks_sql_lk_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "geeksadmin"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "geeksdevadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Geeks_KeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('Geeks_KeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"geeks_rest_api_lk_properties_typeProperties_url": {
+						"value": "[parameters('geeks_rest_api_lk_properties_typeProperties_url')]"
+					},
+					"geeks_adls_lk_properties_typeProperties_url": {
+						"value": "[parameters('geeks_adls_lk_properties_typeProperties_url')]"
+					},
+					"geeks_adls_lk_properties_typeProperties_tenant": {
+						"value": "[parameters('geeks_adls_lk_properties_typeProperties_tenant')]"
+					},
+					"geeks_adls_lk_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('geeks_adls_lk_properties_typeProperties_servicePrincipalId')]"
+					},
+					"geeks_adls_sink_lk_properties_typeProperties_url": {
+						"value": "[parameters('geeks_adls_sink_lk_properties_typeProperties_url')]"
+					},
+					"geeks_adls_sink_lk_properties_typeProperties_tenant": {
+						"value": "[parameters('geeks_adls_sink_lk_properties_typeProperties_tenant')]"
+					},
+					"geeks_adls_sink_lk_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('geeks_adls_sink_lk_properties_typeProperties_servicePrincipalId')]"
+					},
+					"geeks_blob_lk_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('geeks_blob_lk_properties_typeProperties_serviceEndpoint')]"
+					},
+					"geeks_blob_lk_properties_typeProperties_tenant": {
+						"value": "[parameters('geeks_blob_lk_properties_typeProperties_tenant')]"
+					},
+					"geeks_blob_lk_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('geeks_blob_lk_properties_typeProperties_servicePrincipalId')]"
+					},
+					"geeks_sql_lk_properties_typeProperties_server": {
+						"value": "[parameters('geeks_sql_lk_properties_typeProperties_server')]"
+					},
+					"geeks_sql_lk_properties_typeProperties_database": {
+						"value": "[parameters('geeks_sql_lk_properties_typeProperties_database')]"
+					},
+					"geeks_sql_lk_properties_typeProperties_userName": {
+						"value": "[parameters('geeks_sql_lk_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
