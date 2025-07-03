@@ -1,0 +1,9 @@
+{
+	"name": "geeksdevadf",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bd4f8820-82ae-472f-8813-37d6be0d7b83",
+		"tenantId": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774"
+	}
+}

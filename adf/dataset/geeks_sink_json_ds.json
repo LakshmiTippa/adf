@@ -1,0 +1,50 @@
+{
+	"name": "geeks_sink_json_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "geeks_adls_sink_lk",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"fileSystem": "dest"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"File_name_source": {
+					"type": "string"
+				},
+				"container_source": {
+					"type": "string"
+				},
+				"directory_source": {
+					"type": "string"
+				},
+				"File_name_sink": {
+					"type": "string"
+				},
+				"container_sink": {
+					"type": "string"
+				},
+				"directory_sink": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,24 @@
+{
+	"name": "geeks_rest_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "geeks_rest_api_lk",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"url": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "@dataset().url",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

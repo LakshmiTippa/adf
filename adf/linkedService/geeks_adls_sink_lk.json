@@ -1,0 +1,23 @@
+{
+	"name": "geeks_adls_sink_lk",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "geeks_adls_sink_lk",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://geekadlsstoragesink.dfs.core.windows.net/",
+			"tenant": "cfe6f19e-5bda-4b53-8c1a-c09eb79f9774",
+			"servicePrincipalId": "381ea938-616c-4311-81f4-0a1009a54143",
+			"servicePrincipalCredentialType": "ServicePrincipalCert",
+			"servicePrincipalCredential": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "Geeks_KeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "geeksdevappSecret"
+			}
+		}
+	}
+}

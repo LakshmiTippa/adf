@@ -1,0 +1,25 @@
+{
+	"name": "geeks_sql_lk",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "geeks_sql_lk",
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "geeksserver.database.windows.net",
+			"database": "geeeksdb",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "geeksadmin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "Geeks_KeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "geeksdevdbpsw"
+			}
+		}
+	}
+}
