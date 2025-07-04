@@ -207,7 +207,10 @@
 																"value": "@item().File_name_sink",
 																"type": "Expression"
 															},
-															"directory": "@concat(item().directory_sink, '_date_', formatDateTime(utcNow(), 'yyyy-MM-dd'))"
+															"directory": {
+																"value": "@concat(item().directory_sink, '/date_', formatDateTime(utcNow(), 'yyyy-MM-dd'))",
+																"type": "Expression"
+															}
 														}
 													}
 												]
