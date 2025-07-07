@@ -1,0 +1,27 @@
+{
+	"name": "geeks_adb_ls",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-400753655469317.17.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "Geeks_KeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dbstokenaccess"
+			},
+			"newClusterNodeType": "Standard_DS3_v2",
+			"newClusterNumOfWorker": "1",
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterVersion": "13.3.x-scala2.12",
+			"clusterOption": "Fixed",
+			"newClusterInitScripts": [],
+			"dataSecurityMode": "SINGLE_USER"
+		}
+	}
+}
