@@ -37,34 +37,6 @@
 				}
 			},
 			{
-				"name": "Notebook",
-				"type": "DatabricksNotebook",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebookPath": "/Users/surekhatippa18@gmail.com/geeks/geeksdatabricks/geeks_run_notebook",
-					"baseParameters": {
-						"zone": {
-							"value": "@item().zone",
-							"type": "Expression"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "geeks_adb_ls",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
 				"name": "ForEach",
 				"type": "ForEach",
 				"dependsOn": [
@@ -98,6 +70,32 @@
 									"value": "@item().zone",
 									"type": "Expression"
 								}
+							}
+						},
+						{
+							"name": "Notebook",
+							"type": "DatabricksNotebook",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": "/Users/surekhatippa18@gmail.com/geeks/geeksdatabricks/geeks_run_notebook",
+								"baseParameters": {
+									"zone": {
+										"value": "@item().zone",
+										"type": "Expression"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "geeks_adb_ls",
+								"type": "LinkedServiceReference"
 							}
 						}
 					]
