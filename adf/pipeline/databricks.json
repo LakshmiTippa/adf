@@ -37,44 +37,6 @@
 				}
 			},
 			{
-				"name": "ForEach",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Lookup",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Lookup').output.value",
-						"type": "Expression"
-					},
-					"isSequential": true,
-					"activities": [
-						{
-							"name": "Set variable1",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"typeProperties": {
-								"variableName": "name",
-								"value": {
-									"value": "@item().zone",
-									"type": "Expression"
-								}
-							}
-						}
-					]
-				}
-			},
-			{
 				"name": "Notebook",
 				"type": "DatabricksNotebook",
 				"state": "Inactive",
@@ -101,10 +63,49 @@
 					"referenceName": "geeks_adb_ls",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "ForEach",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Set variable",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "names",
+								"value": {
+									"value": "@item().zone",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
 			}
 		],
 		"variables": {
-			"name": {
+			"names": {
 				"type": "String"
 			}
 		},
