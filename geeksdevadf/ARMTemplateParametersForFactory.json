@@ -8,6 +8,9 @@
 		"Geeks_KeyVault_properties_typeProperties_baseUrl": {
 			"value": "https://geekskeyvlt.vault.azure.net/"
 		},
+		"geeks_adb_ls_properties_typeProperties_existingClusterId": {
+			"value": "0708-060905-7xjgv9jr"
+		},
 		"geeks_adls_lk_properties_typeProperties_url": {
 			"value": "https://geekadlsstorage.dfs.core.windows.net/"
 		},

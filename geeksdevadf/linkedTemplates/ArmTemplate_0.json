@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://airlabs.co/api/v9/airlines"
 		},
+		"geeks_adb_ls_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0708-060905-7xjgv9jr"
+		},
 		"geeks_adls_lk_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://geekadlsstorage.dfs.core.windows.net/"
@@ -126,6 +130,30 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/geeks_adb_ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-400753655469317.17.azuredatabricks.net",
+					"accessToken": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "Geeks_KeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "dbstokenaccess"
+					},
+					"existingClusterId": "[parameters('geeks_adb_ls_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Geeks_KeyVault')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/geeks_adls_lk')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -229,38 +257,6 @@
 						},
 						"secretName": "geeksdevdbpsw"
 					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Geeks_KeyVault')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/geeks_adb_ls')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://adb-400753655469317.17.azuredatabricks.net",
-					"accessToken": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "Geeks_KeyVault",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "dbstokenaccess"
-					},
-					"newClusterNodeType": "Standard_DS4_v2",
-					"newClusterNumOfWorker": "1",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "13.3.x-scala2.12",
-					"clusterOption": "Fixed",
-					"newClusterInitScripts": [],
-					"dataSecurityMode": "SINGLE_USER"
 				}
 			},
 			"dependsOn": [

@@ -11,6 +11,10 @@
 			"type": "string",
 			"defaultValue": "https://geekskeyvlt.vault.azure.net/"
 		},
+		"geeks_adb_ls_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0708-060905-7xjgv9jr"
+		},
 		"geeks_adls_lk_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://geekadlsstorage.dfs.core.windows.net/"
@@ -95,6 +99,9 @@
 					},
 					"geeks_rest_api_lk_properties_typeProperties_url": {
 						"value": "[parameters('geeks_rest_api_lk_properties_typeProperties_url')]"
+					},
+					"geeks_adb_ls_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('geeks_adb_ls_properties_typeProperties_existingClusterId')]"
 					},
 					"geeks_adls_lk_properties_typeProperties_url": {
 						"value": "[parameters('geeks_adls_lk_properties_typeProperties_url')]"
