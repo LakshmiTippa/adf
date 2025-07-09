@@ -1,0 +1,6 @@
+{
+	"name": "sshIR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
